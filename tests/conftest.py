@@ -6,6 +6,8 @@ from selene.support.shared import browser
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 
+from utils import attach
+
 
 def pytest_addoption(parser):
     parser.addoption('--browser_version', default='100.0')
@@ -40,10 +42,10 @@ def setup_browser(request):
     browser.config.window_height = request.param[1]
     yield browser
 
-    # attach.add_html(browser)
-    # attach.add_screenshot(browser)
-    # attach.add_logs(browser)
-    # attach.add_video(browser)
+    attach.add_html(browser)
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_video(browser)
     browser.quit()
 
 
@@ -71,8 +73,8 @@ def setup_mobile_browser(request):
     browser.config.window_height = request.param[1]
     yield browser
 
-    # attach.add_html(browser)
-    # attach.add_screenshot(browser)
-    # attach.add_logs(browser)
-    # attach.add_video(browser)
+    attach.add_html(browser)
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_video(browser)
     browser.quit()
