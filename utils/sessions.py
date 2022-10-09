@@ -7,6 +7,6 @@ def api_url() -> BaseSession:
     return BaseSession(base_url=root_url)
 
 
-# def main_url() -> BaseSession:
-#     root_url = os.getenv('main_url')
-#     return BaseSession(base_url=root_url)
+def boards_api_url() -> BaseSession:
+    root_url = os.getenv('boards_api_url')
+    return BaseSession(base_url=root_url)
