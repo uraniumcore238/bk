@@ -5,12 +5,12 @@ from dotenv import load_dotenv
 from selene.support.shared import browser
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
-
 from utils import attach
 
 
 def pytest_addoption(parser):
     parser.addoption('--browser_version', default='100.0')
+    parser.addoption('--browser_name', default='chrome')
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -21,9 +21,10 @@ def load_env():
 @pytest.fixture(scope='function', params=[('1920', '1080'), ('1600', '900'), ('1600', '1200'), ('1280', '1024')])
 def setup_browser(request):
     browser_version = request.config.getoption('--browser_version')
+    browser_name = request.config.getoption('--browser_name')
     options = Options()
     selenoid_capabilities = {
-        "browserName": 'chrome',
+        "browserName": browser_name,
         "browserVersion": browser_version,
         "selenoid:options": {
             "enableVNC": True,
