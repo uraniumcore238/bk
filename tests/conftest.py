@@ -18,7 +18,8 @@ def load_env():
     load_dotenv()
 
 
-@pytest.fixture(scope='function', params=[('1920', '1080'), ('1600', '900'), ('1600', '1200'), ('1280', '1024')])
+# @pytest.fixture(scope='class', params=[('1920', '1080')])
+@pytest.fixture(scope='class', params=[('1920', '1080'), ('1600', '900'), ('1600', '1200'), ('1280', '1024')])
 def setup_browser(request):
     browser_version = request.config.getoption('--browser_version')
     browser_name = request.config.getoption('--browser_name')
