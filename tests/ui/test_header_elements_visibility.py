@@ -3,6 +3,7 @@ import os
 import allure
 from pages.base_page import BasePage
 from pages.main_page import MainPage
+from utils import remove_cookie_banner
 from utils.open_main_page import open_main_page
 
 
@@ -240,5 +241,6 @@ class TestHeaderElementsVisibility:
             BasePage.click_on_element(self, MainPage.side_menu_button)
         with allure.step('Assert side menu visibility'):
             BasePage.assert_element_visibility(self, MainPage.side_menu)
+            remove_cookie_banner.remove_cookie_banner()
         with allure.step('Assert download button visibility'):
             BasePage.assert_element_visibility(self, MainPage.download_button)
