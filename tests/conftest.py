@@ -49,7 +49,7 @@ def setup_browser(request):
     attach.add_video(browser)
     browser.quit()
 
-# @pytest.fixture(scope='function', params=[('750', '1334')])
+
 @pytest.fixture(scope='function', params=[('750', '1334'), ('960', '640'), ('390', '844'), ('414', '896')])
 def setup_mobile_browser(request):
     browser_version = request.config.getoption('--browser_version')
