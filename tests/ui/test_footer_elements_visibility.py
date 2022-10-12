@@ -159,3 +159,17 @@ class TestFooterElementsVisibility:
     def test_desktop_visibility_footer_signup_button(self, open_main_page):
         with allure.step('Sign up button visibility'):
             BasePage.assert_element_visibility(self, MainPage.signup_btn)
+
+    @allure.severity('Blocker')
+    @allure.label("owner", "uraniumcore238")
+    @allure.story('Visibility elements on discord.com page')
+    def test_desktop_visibility_footer_title(self, open_main_page):
+        with allure.step('Assert title footer visibility'):
+            BasePage().assert_element_visibility(MainPage.footer_title)
+
+    @allure.severity('Blocker')
+    @allure.label("owner", "uraniumcore238")
+    @allure.story('Visibility elements on discord.com page')
+    def test_desktop_visibility_footer_title_text(self, open_main_page):
+        with allure.step('Assert text in title footer element'):
+            BasePage().assert_exact_text_in_element(MainPage.footer_title, 'IMAGINE A PLACE')
