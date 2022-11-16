@@ -3,7 +3,7 @@ from utils.requests_helper import BaseSession
 
 
 def api_url() -> BaseSession:
-    root_url = os.getenv('api_url')
+    root_url = 'https://discord.com/api/v9'
     return BaseSession(base_url=root_url)
 
 

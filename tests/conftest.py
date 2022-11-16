@@ -33,9 +33,12 @@ def setup_browser(request):
     }
     options.capabilities.update(selenoid_capabilities)
 
-    login = os.getenv('LOGIN')
-    password = os.getenv('PASSWORD')
-    driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
+    # login = os.getenv('LOGIN')
+    # password = os.getenv('PASSWORD')
+    # driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
+    # для kp-auto
+    driver = webdriver.Remote(command_executor="http://10.16.3.19:4444/wd/hub",
+                              options=options)
     # driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub", options=options)
 
     browser.config.driver = driver
@@ -63,10 +66,12 @@ def setup_mobile_browser(request):
         }
     }
     options.capabilities.update(selenoid_capabilities)
+    driver = webdriver.Remote(command_executor="http://10.16.3.19:4444/wd/hub",
+                              options=options)
+    # login = os.getenv('LOGIN')
+    # password = os.getenv('PASSWORD')
+    # driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
 
-    login = os.getenv('LOGIN')
-    password = os.getenv('PASSWORD')
-    driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
     # driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub", options=options)
 
     browser.config.driver = driver
