@@ -18,7 +18,8 @@ def load_env():
     load_dotenv()
 
 
-@pytest.fixture(scope='class', params=[('1920', '1080'), ('1600', '900'), ('1600', '1200'), ('1280', '1024')])
+# @pytest.fixture(scope='class', params=[('1920', '1080'), ('1600', '900'), ('1600', '1200'), ('1280', '1024')])
+@pytest.fixture(scope='class', params=[('1920', '1080')])
 def setup_browser(request):
     browser_version = request.config.getoption('--browser_version')
     browser_name = request.config.getoption('--browser_name')
@@ -28,7 +29,7 @@ def setup_browser(request):
         "browserVersion": browser_version,
         "selenoid:options": {
             "enableVNC": True,
-            "enableVideo": True
+            "enableVideo": False
         }
     }
     options.capabilities.update(selenoid_capabilities)
@@ -37,8 +38,7 @@ def setup_browser(request):
     # password = os.getenv('PASSWORD')
     # driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
     # для kp-auto
-    driver = webdriver.Remote(command_executor="http://10.16.3.19:4444/wd/hub",
-                              options=options)
+    driver = webdriver.Remote(command_executor="http://10.16.3.19:4444/wd/hub", options=options)
     # driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub", options=options)
 
     browser.config.driver = driver
