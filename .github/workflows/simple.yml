@@ -45,7 +45,10 @@ name: Test
 
 
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - "master"
 jobs:
   tests:
     name: Run python tests
