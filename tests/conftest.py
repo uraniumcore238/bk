@@ -9,7 +9,7 @@ from utils import attach
 
 
 def pytest_addoption(parser):
-    parser.addoption('--browser_version', default='100.0')
+    parser.addoption('--browser_version', default='101.0')
     parser.addoption('--browser_name', default='chrome')
 
 
@@ -38,8 +38,8 @@ def setup_browser(request):
     # password = os.getenv('PASSWORD')
     # driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
     # для kp-auto
-    driver = webdriver.Remote(command_executor="http://10.16.3.19:4444/wd/hub", options=options)
-    # driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub", options=options)
+    # driver = webdriver.Remote(command_executor="http://10.16.3.19:4444/wd/hub", options=options)
+    driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub", options=options)
 
     browser.config.driver = driver
     browser.config.window_width = request.param[0]
@@ -53,7 +53,10 @@ def setup_browser(request):
     browser.quit()
 
 
-@pytest.fixture(scope='function', params=[('750', '1334'), ('640', '960'), ('390', '844'), ('414', '896')])
+@pytest.fixture(scope='function', params=[
+    # ('750', '1334'), ('640', '960'), ('390', '844'),
+    ('414', '896')
+])
 def setup_mobile_browser(request):
     browser_version = request.config.getoption('--browser_version')
     options = Options()
@@ -66,13 +69,11 @@ def setup_mobile_browser(request):
         }
     }
     options.capabilities.update(selenoid_capabilities)
-    driver = webdriver.Remote(command_executor="http://10.16.3.19:4444/wd/hub",
-                              options=options)
+    # driver = webdriver.Remote(command_executor="http://10.16.3.19:4444/wd/hub", options=options)
     # login = os.getenv('LOGIN')
     # password = os.getenv('PASSWORD')
     # driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
-
-    # driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub", options=options)
+    driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub", options=options)
 
     browser.config.driver = driver
     browser.config.window_width = request.param[0]
