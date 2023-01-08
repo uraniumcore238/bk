@@ -9,12 +9,12 @@
     "enableChart": true
   },
   "telegram": {
-    "token": "1663573571:AAHHUfWgpanzCaEn8wcrlTzfruERufMjiWY",
+    "token": "",
     "chat": "-1001313327174",
     "replyTo": ""
   },
   "slack": {
-    "token": "xoxb-1441411661745-1915822333685-U8nesjSt8fNyofNAsjgqOfw0",
+    "token": "",
     "chat": "#qa",
     "replyTo": ""
   }
