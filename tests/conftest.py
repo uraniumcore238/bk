@@ -39,7 +39,7 @@ def setup_browser(request):
     # driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub", options=options)
     # для kp-auto
     # driver = webdriver.Remote(command_executor="http://10.16.3.19:4444/wd/hub", options=options)
-    driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub", options=options)
+    driver = webdriver.Remote(command_executor="http://localhost:9515/wd/hub", options=options)
 
     browser.config.driver = driver
     browser.config.window_width = request.param[0]
