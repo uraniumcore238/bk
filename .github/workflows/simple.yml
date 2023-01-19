@@ -60,4 +60,5 @@ jobs:
           python-version: '3.10'
       - run: pip install -r requirements.txt
       - run: pytest tests/api
+      - run: pytest tests/ui
 
