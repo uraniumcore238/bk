@@ -132,7 +132,7 @@ jobs:
           pip install -r requirements.txt
       - name: Install dependencies
         run: |
-          pytest tests/api --alluredir=allure-results
+          pytest tests/api
       - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
