@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Feb 26 17:19:39 GMT 2023","Sun Feb 26 17:19:39 GMT 2023","0","tests.api","test_post_authorization","","","","test_post_authorization",""
+"passed","Sun Feb 26 17:19:38 GMT 2023","Sun Feb 26 17:19:39 GMT 2023","214","tests.api","test_get_location_metadata","","","","Api test",""
