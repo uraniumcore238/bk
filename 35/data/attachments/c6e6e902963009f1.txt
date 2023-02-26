@@ -1,0 +1,2 @@
+{'level': 'WARNING', 'message': "security - Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.", 'source': 'security', 'timestamp': 1677424520371}
+{'level': 'SEVERE', 'message': 'https://discord.com/api/v9/users/@me?with_analytics_token=true - Failed to load resource: the server responded with a status of 401 ()', 'source': 'network', 'timestamp': 1677424521160}
