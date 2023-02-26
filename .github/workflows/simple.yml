@@ -111,6 +111,8 @@ name: Test
 
 
 
+
+
 on:
   push:
     branches:
@@ -120,27 +122,17 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Set up Python 3.x
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.10'
-
+          python-version: '3.x'
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-
-      - name: Install xvfb
-        run: sudo apt-get install xvfb
-      - uses: nanasess/setup-chromedriver@v1
-      - run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional      
-          pytest --alluredir=allure-results
-          pytest tests/api
-#          pytest tests/ui
-
+      - name: Install dependencies
+        run: |
+          pytest pytest tests/api --alluredir=allure-results
       - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
@@ -148,7 +140,6 @@ jobs:
         with:
           ref: gh-pages
           path: gh-pages
-
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -156,7 +147,6 @@ jobs:
           allure_results: allure-results
           allure_history: allure-history
           keep_reports: 20
-
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
