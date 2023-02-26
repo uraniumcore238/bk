@@ -1,0 +1,1 @@
+[{"uid":"27c18db0f83d7155","name":"Api test","time":{"start":1677431395075,"stop":1677431395364,"duration":289},"status":"passed","severity":"normal"},{"uid":"4b4219c3d10f3bff","name":"test_post_authorization","time":{"start":1677431395366,"stop":1677431395366,"duration":0},"status":"passed","severity":"normal"}]
